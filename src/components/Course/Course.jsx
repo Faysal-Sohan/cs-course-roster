@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Course = ({ course }) => {
+const Course = ({ course, handleSelectedCourses}) => {
 
     const { cover, course_title, description, price, credit } = course;
 
@@ -13,13 +13,15 @@ const Course = ({ course }) => {
                 <p><i className="fas fa-dollar-sign"></i>  Price : {price}</p>
                 <p><i className="fas fa-book-open"></i>  Credit : {credit}hr</p>
             </div>
-            <button className="w-full bg-blue-600 text-white rounded-lg py-2 text-[18px] font-semibold">Select</button>
+            <button className="w-full bg-blue-600 text-white rounded-lg py-2 text-[18px] font-semibold"
+            onClick={() => handleSelectedCourses(course)}>Select</button>
         </div>
     );
 };
 
 Course.propTypes = {
-    course: PropTypes.object.isRequired
+    course: PropTypes.object.isRequired,
+    handleSelectedCourses: PropTypes.func.isRequired
 }
 
 export default Course;
