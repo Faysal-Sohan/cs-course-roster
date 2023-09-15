@@ -19,7 +19,7 @@
         "id": 3,
         "cover": "https://i.ibb.co/N6zhcmG/Rectangle-2-4.png",
         "course_title": "Introduction to C++ for DSA",
-        "description": "Discover C++ programming for data structures and algorithms. Learn about classes, templates, and advanced C++ features.",
+        "description": "C++ programming for data structures and algorithms. Learn about classes, templates, and advanced C++ features.",
         "price": 64.99,
         "credit": 3
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "cover": "https://i.ibb.co/yS455GN/Rectangle-2-5.png",
         "course_title": "Software Engineering",
-        "description": "Explore the principles of software engineering, including software development methodologies and project management.",
+        "description": "Explore the principles of software engineering, including software development and project management.",
         "price": 69.99,
         "credit": 4
     },
