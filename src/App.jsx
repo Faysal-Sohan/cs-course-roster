@@ -3,6 +3,8 @@ import Cart from './components/Cart/Cart'
 import Courses from './components/Courses/Courses'
 import Header from './components/Header/Header'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -10,16 +12,17 @@ function App() {
   const [totalCredit, setTotalCredit] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const notifyAlreadySelected = () => toast("Course is Already Selected!");
+  const notifyLimit20Credit = () => toast("You can't add more than 20 credit!");
+
   const handleSelectedCourses = course => {
     const newTotalCredit = totalCredit + course.credit;
     const newTotalPrice = totalPrice + course.price;
     if(selectedCourses.find(selectedCourse => selectedCourse === course)) {
-        // console.log("Course Is not there");
-        alert("Course is Already Selected");
+        notifyAlreadySelected();
     }
     else if(newTotalCredit > 20){
-        alert("You can't add more than 20 credit");
-       
+       notifyLimit20Credit();
     }
     else {
       setSelectedCourses([...selectedCourses, course]);
@@ -36,6 +39,7 @@ function App() {
         <Cart key={selectedCourses.id} selectedCourses={selectedCourses} totalCredit={totalCredit}
         totalPrice={totalPrice}></Cart>
       </div>
+      <ToastContainer/>
     </>
   )
 }
