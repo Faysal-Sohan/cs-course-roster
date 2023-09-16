@@ -17,7 +17,7 @@ const Courses = ({handleSelectedCourses}) => {
 
     return (
         <div className="w-3/4">
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-4">
                 {
                     courses.map(course => <Course key={course.id} course={course} handleSelectedCourses={handleSelectedCourses}></Course>)
                 }

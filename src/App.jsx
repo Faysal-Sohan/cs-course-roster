@@ -7,24 +7,34 @@ import { useState } from 'react'
 function App() {
 
   const [selectedCourses, setSelectedCourses] = useState([]);
+  const [totalCredit, setTotalCredit] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleSelectedCourses = course => {
-    if(!selectedCourses.find(selectedCourse => selectedCourse === course)) {
+    const newTotalCredit = totalCredit + course.credit;
+    const newTotalPrice = totalPrice + course.price;
+    if(selectedCourses.find(selectedCourse => selectedCourse === course)) {
         // console.log("Course Is not there");
-        setSelectedCourses([...selectedCourses, course]);
+        alert("Course is Already Selected");
+    }
+    else if(newTotalCredit > 20){
+        alert("You can't add more than 20 credit");
+       
     }
     else {
-        console.log("Course is already there");
-        alert("Course is Already Selected");
+      setSelectedCourses([...selectedCourses, course]);
+      setTotalCredit(newTotalCredit);
+      setTotalPrice(newTotalPrice);
     }
 }
 
   return (
     <>
       <Header></Header>
-      <div className='md:flex gap-6'>
+      <div className='md:flex gap-4'>
         <Courses key={selectedCourses.id} handleSelectedCourses={handleSelectedCourses}></Courses>
-        <Cart key={selectedCourses.id} selectedCourses={selectedCourses}></Cart>
+        <Cart key={selectedCourses.id} selectedCourses={selectedCourses} totalCredit={totalCredit}
+        totalPrice={totalPrice}></Cart>
       </div>
     </>
   )
