@@ -6,7 +6,7 @@ const Course = ({ course, handleSelectedCourses}) => {
 
     return (
         <div className="border rounded-xl bg-white p-4 space-y-4">
-            <img src={cover} alt="" />
+            <img className='w-full' src={cover} alt="" />
             <h3 className="text-[18px] font-semibold">{course_title}</h3>
             <p className="text-sm text-gray-500 ">{description}</p>
             <div className="flex justify-between font-medium text-gray-500">
